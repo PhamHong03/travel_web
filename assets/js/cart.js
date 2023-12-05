@@ -91,7 +91,7 @@ if (cartListContainer) {
       </div>
       <div class="list__items-content">
         <div class="list__items list__items-name">${cartItem.name}</div>
-        <div class="list__items list__items-price">${cartItem.prices}</div>
+        <div class="list__items list__items-price">${cartItem.prices}đ</div>
         <div class="list__items list__items-quantity">${cartItem.quantity}</div>
         <div class="list__items list__items-sum list__items--hidden">
           30000000
