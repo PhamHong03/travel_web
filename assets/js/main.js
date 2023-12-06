@@ -35,3 +35,95 @@ window.addEventListener("scroll", () => {
 //   console.log(cartItem.length);
 //   cartQuantityIcon.innerHTML = `<div class="cart__quantity">${cartItem.length}</div>`;
 // }
+
+
+
+// Contact Form
+const form1 = document.getElementById('form');
+const fname = document.getElementById('name');
+const email = document.getElementById('email')
+const title = document.getElementById('title');
+const text = document.getElementById('message');
+const container = document.querySelector('.section__contact--form');
+
+function checkName(){
+  if(fname.value === ''){
+    errorMessage(fname, "This error!");
+  }else{
+    successMessage(fname);
+  }
+}
+function checkTile(){
+  if(title.value === ''){
+    errorMessage(title, "This error!");
+  }else{
+    successMessage(title);
+  }
+}
+function checkText(){
+  if(text.value === ''){
+    errorMessage(text, "This error!");
+  }else{
+    successMessage(text);
+  }
+}
+function validationemal(email){
+  var emailform = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+  return emailform.test(String(email).toLowerCase());
+}
+function chekcEmail(){
+  if(email.value === ''){
+    errorMessage(email, "This error!");
+  }else if(!validationemal(email.value)){
+    errorMessage(email, "This error!");
+  }else{
+    successMessage(email);
+  }
+}
+
+
+function errorMessage (pElement, message) {
+  const formRow = pElement.parentElement;
+  if(formRow.classList.contains('success')){
+    formRow.classList.remove('success');
+    formRow.classList.add('error');
+  }else{
+    formRow.classList.add('error');
+  }
+}
+
+function successMessage(pElement){
+  const formRow = pElement.parentElement;
+  if(formRow.classList.contains('error')){
+    formRow.classList.remove('error');
+    formRow.classList.add('success');
+  }else{
+    formRow.classList.add('success');
+  }
+}
+
+
+fname.addEventListener('blur', checkName, true);
+email.addEventListener('blur', chekcEmail, true);
+title.addEventListener('blur', checkTile, true);
+text.addEventListener('blur', checkText, true);
+
+form1.addEventListener('submit', (evt) => {
+  evt.preventDefault();
+  const formRow = document.querySelectorAll('.form-row');
+  let arrFomrRow = Array.from(formRow);
+
+  arrFomrRow.pop();
+  let isValid = true;
+  arrFomrRow.forEach(item => {
+    if(!item.classList.contains('success')){
+      isValid = false;
+    }
+  });
+  if(isValid){
+    container.classList.add('complete');
+    alert("You sent your problem successfully and wait for respond!");
+  }else{
+    container.classList.remove('complete');
+  }
+})

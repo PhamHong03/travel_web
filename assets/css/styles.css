@@ -441,17 +441,21 @@
 }
 .form-center {
   display: flex;
-  margin-top: 20px;
+  margin-top: 55px;
   align-items: center;
   justify-content: center;
 }
 
-.form__infor,
+/* .form__infor,
 .form__infor--name,
 .form__infor--email,
 .form__title,
 .form__message {
-  margin-bottom: 15px;
+  padding-bottom: 15px;
+} */
+
+.form-row{
+  padding-bottom: 3px;
 }
 .section__contact .infor,
 .form {
@@ -471,6 +475,12 @@
   display: flex;
   border-radius: 10px;
 }
+.form-row.success input{
+  border: 1px solid green;
+}
+.form-row.error input{
+  border: 1px solid red;
+}
 
 /* Page cart */
 .cart {
@@ -487,7 +497,7 @@
   padding: 30px 12px;
   width: 100%;
 }
-.list__group {
+.list__group:not(.list__group-action) {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -495,7 +505,36 @@
   text-align: center;
   padding-right: 20px;
 }
+.list__group-action {
+  margin-bottom: 8px;
+  background: var(--white);
+  height: 40px;
+  padding: 0 20px;
+  line-height: 40px;
+}
+.list__group-action .sum-tour {
+  float: left;
+}
+.list__group-action .sum-tour span {
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.list__group-action .btn-delete-all {
+  float: right;
+}
+.list__group-action .btn-delete-all button {
+  background: transparent;
+  outline: none;
+  border: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: red;
+}
+.list__group-action .btn-delete-all button:hover {
+  text-shadow: 1px 1px 2px rgba(255, 0, 119, 0.5);
+}
 .list__group-header {
+  clear: both;
   height: 55px;
   margin-bottom: 15px;
   /* text-transform: uppercase; */
@@ -559,7 +598,7 @@
 .btn--confirm:hover {
   color: var(--black);
   height: 32px;
-  width: 62%;
+  /* width: 62%; */
   box-shadow: 0 0 3px 3px rgba(1, 172, 7, 0.2);
 }
 .btn--delete {
@@ -623,6 +662,10 @@
     top: 4%;
     right: 2%;
   }
+  .list_hidden.list__group{
+    display: none;
+  }
+  
 }
 @media screen and (max-width: 430px) {
   .list__items {

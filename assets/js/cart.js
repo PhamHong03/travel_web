@@ -28,12 +28,21 @@ const updateQuantityCart = () => {
   }
 };
 
+// format currency
+const formatCurrency = (amount, locale = "vi-VN") => {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: "VND",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 2,
+  }).format(amount);
+};
+
 const cartList = getCartList();
 console.log(cartList);
 
 const btnBook = document.querySelectorAll(".btn--book");
 const cartListContainer = document.querySelector(".cart__list");
-const btnDeleteAll = document.querySelector(".btn-delete-all button");
 
 // Insert tour into cart list with local storage
 if (btnBook.length) {
@@ -71,10 +80,16 @@ if (btnBook.length) {
 // Show shopping cart list: empty cart and not empty cart
 if (cartListContainer) {
   if (cartList.length > 0) {
-    cartListHTML = `<div class="cart__list-box">
-    <div class="list__group list__group-header">
+    let cartListHTML = `<div class="cart__list-box">
+    <div class="list__group list__group-action">
+      <div class="sum-tour"><span>Total:</span> ${cartList.length} tour</div>
+      <div class="btn-delete-all">
+        <button type="button">Delete all</button>
+      </div>
+    </div>
+    <div class="list_hidden list__group list__group-header">
       <div class="list__items-tour">Tour</div>
-      <div class="list__items-content">
+      <div class=" list__items-content">
         <div class="list__items">Name</div>
         <div class="list__items">Price "VND"</div>
         <div class="list__items">Quantity</div>
@@ -91,10 +106,12 @@ if (cartListContainer) {
       </div>
       <div class="list__items-content">
         <div class="list__items list__items-name">${cartItem.name}</div>
-        <div class="list__items list__items-price">${cartItem.prices}đ</div>
+        <div class="list__items list__items-price">${formatCurrency(
+          cartItem.prices
+        )}</div>
         <div class="list__items list__items-quantity">${cartItem.quantity}</div>
         <div class="list__items list__items-sum list__items--hidden">
-          30000000
+          ${formatCurrency(cartItem.prices * cartItem.quantity)}
         </div>
         <div class="list__items items-button">
           <button class="btn--confirm">Confirm</button>
@@ -119,6 +136,7 @@ if (cartListContainer) {
 }
 
 // Delete all tour in cart list
+const btnDeleteAll = document.querySelector(".btn-delete-all button");
 if (btnDeleteAll) {
   btnDeleteAll.addEventListener("click", () => {
     if (cartList.length === 0) {
