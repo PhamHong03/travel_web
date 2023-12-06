@@ -102,6 +102,7 @@
         </label>
         <hr class="hr__mobile" />
         <ul class="head__menu--list-mobile">
+          <li class="head__menu--item-mobile"><a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
           <li class="head__menu--item-mobile"><a href="/home.html">HOME</a></li>
           <li class="head__menu--item-mobile"><a href="/book.html">BOOK</a></li>
           <li class="head__menu--item-mobile">
@@ -189,49 +190,64 @@
             <div
               class="section__contact .section__contact--form col-md-6 col-sm-12 col-xs-12"
             >
-              <div class="form">
+              <div class="form" id="form">
                 <form action="">
                   <div class="form__infor">
-                    <div class="form__infor--name">
-                      <label for="name">"Your Name"</label>
-                      <input
-                        type="text"
-                        name="name"
-                        class="form-control"
-                        id="name"
-                        required=""
-                      />
+                    <div class="form-row">
+                      <div class="form__infor--name">
+                        <label for="name">"Your Name"</label>
+                        <input
+                          type="text"
+                          name="name"
+                          class="form-control"
+                          id="name"
+                          required=""
+                          placeholder="Enter your name: "
+                        />
+                        
+                      </div>
+                    </div>                   
+                    <div class="form-row">
+                      <div class="form__infor--email">
+                        <label for="name">"Your Email"</label>
+                        <input
+                          type="text"
+                          name="email"
+                          class="form-control"
+                          id="email"
+                          required=""
+                          placeholder="Enter your email: "
+                        />
+                      </div>
                     </div>
-                    <div class="form__infor--email">
-                      <label for="name">"Your Email"</label>
-                      <input
-                        type="text"
-                        name="name"
-                        class="form-control"
-                        id="name"
-                        required=""
-                      />
+                    <div class="form-row">
+                      <div class="form__title">
+                        <label for="name">"Subject"</label>
+                        <input
+                          type="text"
+                          name="title"
+                          class="form-control"
+                          id="title"
+                          required=""
+                          placeholder="Enter your subjects: "
+                        />
+                      </div>
                     </div>
-                  </div>
-                  <div class="form__title">
-                    <label for="name">"Subject"</label>
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control"
-                      id="name"
-                      required=""
-                    />
-                  </div>
-                  <div class="form__message">
-                    <label for="name">"Message"</label>
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      rows="10"
-                      required=""
-                    ></textarea>
-                  </div>
+                    <div class="form-row">
+                      <div class="form__message">
+                        <label for="name">"Message"</label>
+                        <textarea
+                          class="form-control"
+                          name="message"
+                          rows="10"
+                          required=""
+                          id="message"
+                          placeholder="Enter your problem: "
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>                 
+                  
                   <div class="form-center">
                     <button class="btn btn-form-center" type="submit">
                       Send Message
@@ -341,7 +357,7 @@
           <div class="row">
             <div class="col-12">
               <div class="section__footer--creator">
-                <span>Copyright © 2021 By <a href="">Toan_Hong_Khanh</a></span>
+                <span>Copyright © 2023 By <a href="">Toan_Hong</a></span>
               </div>
             </div>
           </div>

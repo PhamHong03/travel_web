@@ -87,9 +87,9 @@ if (cartListContainer) {
         <button type="button">Delete all</button>
       </div>
     </div>
-    <div class="list__group list__group-header">
+    <div class="list_hidden list__group list__group-header">
       <div class="list__items-tour">Tour</div>
-      <div class="list__items-content">
+      <div class=" list__items-content">
         <div class="list__items">Name</div>
         <div class="list__items">Price "VND"</div>
         <div class="list__items">Quantity</div>

@@ -35,3 +35,33 @@ window.addEventListener("scroll", () => {
 //   console.log(cartItem.length);
 //   cartQuantityIcon.innerHTML = `<div class="cart__quantity">${cartItem.length}</div>`;
 // }
+
+
+
+// contact form
+const form1 = document.getElementById('form');
+const fname = document.getElementById('name');
+const email = document.getElementById('email')
+const title = document.getElementById('title');
+const text = document.getElementById('message');
+
+
+function errorMessage (pElement, message) {
+  const formRow = pElement.parentElement;
+  if(formRow.classList.contains('success')){
+    formRow.classList.remove('success');
+    formRow.classList.add('error');
+  }else{
+    formRow.classList.add('error');
+  }
+}
+
+function successMessage(pElement){
+  const formRow = pElement.parentElement;
+  if(formRow.classList.contains('error')){
+    formRow.classList.remove('error');
+    formRow.classList.add('success');
+  }else{
+    formRow.classList.add('success');
+  }
+}

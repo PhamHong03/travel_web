@@ -471,6 +471,12 @@
   display: flex;
   border-radius: 10px;
 }
+.form-row.success input{
+  border: 1px solid green;
+}
+.form-row.error input{
+  border: 1px solid red;
+}
 
 /* Page cart */
 .cart {
@@ -652,6 +658,10 @@
     top: 4%;
     right: 2%;
   }
+  .list_hidden.list__group{
+    display: none;
+  }
+  
 }
 @media screen and (max-width: 430px) {
   .list__items {
