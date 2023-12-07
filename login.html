@@ -105,7 +105,9 @@
         </label>
         <hr class="hr__mobile" />
         <ul class="head__menu--list-mobile">
-          <li class="head__menu--item-mobile"><a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+          <li class="head__menu--item-mobile">
+            <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
           <li class="head__menu--item-mobile"><a href="/home.html">HOME</a></li>
           <li class="head__menu--item-mobile"><a href="/book.html">BOOK</a></li>
           <li class="head__menu--item-mobile">
@@ -139,35 +141,45 @@
 
             <div class="login__box-header--under"><span>Log in</span></div>
           </div>
-          <form method="POST" action="#" class="login__form">
+          <form method="POST" action="#" class="login__form" id="login-form">
             <div class="login__box-form-group">
-              <input type="email" class="login__form-input" required />
-              <label for="">Email</label>
-              <i class="fa-solid fa-envelope"></i>
+              <div class="login__form-row">
+                <input
+                  type="email"
+                  class="login__form-input"
+                  id="email"
+                  name="email"
+                />
+                <label for="">Email</label>
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <small class="error-message"></small>
             </div>
-
             <div class="login__box-form-group">
-              <input
-                type="password"
-                class="login__form-input"
-                required
-                minlength="8"
-              />
-              <label for="">Password</label>
-              <i class="fa-solid fa-key"></i>
+              <div class="login__form-row">
+                <input
+                  type="password"
+                  class="login__form-input"
+                  id="password"
+                  name="password"
+                />
+                <label for="">Password</label>
+                <i class="fa-solid fa-key"></i>
+              </div>
+              <small class="error-message"></small>
             </div>
             <div class="login__box-form-group login__box-form-option-forgot">
-              <div class="login__box-form-remember">
+              <div class="login__box-form-show-password">
                 <input
                   type="checkbox"
-                  class="login__box-form-remember--btn"
-                />Remember me
+                  class="login__box-form-show-password--btn"
+                />Show password
               </div>
               <div class="login__box-form-forgot-password">
                 <a href="#">Forgot password?</a>
               </div>
             </div>
-            <div class="login__box-form-group">
+            <div class="login__box-form-group login__box-form-group--submit">
               <input
                 type="submit"
                 value="Log in"
@@ -318,7 +330,7 @@
         </div>
       </section>
       <!-- hihi -->
-      <!--lll --> 
+      <!--lll -->
     </footer>
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -334,5 +346,32 @@
     ></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/validationForm.js"></script>
+    <script>
+      ValidateForm({
+        formSelector: "#login-form",
+        formGroupSelector: ".login__box-form-group",
+        errorMessageSelector: ".error-message",
+        rules: [
+          isEmail("#email", {
+            required: "Please enter your email address",
+            invalid: "Your email address is invalid",
+          }),
+          isPassword("#password", 8, {
+            required: "Please enter your password",
+            invalid: "Password must be at least 8 characters",
+          }),
+        ],
+        showPassword: showPassword(".login__box-form-show-password--btn"),
+        submitForm: (data) => {
+          // logIn({
+          //   name: data.name,
+          //   email: data.email,
+          //   password: data.password,
+          // });
+          console.log(data);
+        },
+      });
+    </script>
   </body>
 </html>

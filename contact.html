@@ -188,7 +188,7 @@
               </div>
             </div>
             <div
-              class="section__contact .section__contact--form col-md-6 col-sm-12 col-xs-12">
+              class="section__contact section__contact--form col-md-6 col-sm-12 col-xs-12">
             <form action="/notExitsURL" class="form" id="form">
               <div class="form__infor">
                 <div class="form-row">
@@ -201,6 +201,7 @@
                       required=""
                       placeholder="Enter your name: "
                     />
+                    <small class="error-message"></small>
                 </div>                   
                 <div class="form-row">
                     <label for="name">Your Email(*)</label>
@@ -212,6 +213,7 @@
                       required=""
                       placeholder="Enter your email: "
                     />
+                    <small class="error-message"></small>
                 </div>
                 <div class="form-row">
                     <label for="name">Subject(*)</label>
@@ -223,6 +225,7 @@
                       required=""
                       placeholder="Enter your subjects: "
                     />
+                    <small class="error-message"></small>
                 </div>
                 <div class="form-row">
                     <label for="name">Message</label>
@@ -234,6 +237,7 @@
                       id="message"
                       placeholder="Enter your problem: "
                     ></textarea>
+                    <small class="error-message"></small>
                 </div>
                 <div class="form-row form-center ">
                   <button class="btn btn-form-center" type="submit">
