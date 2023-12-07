@@ -69,7 +69,7 @@ function validationemal(email) {
   var emailform = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
   return emailform.test(String(email).toLowerCase());
 }
-function chekcEmail() {
+function checkEmail() {
   if (email.value === "") {
     errorMessage(email, "This error!");
   } else if (!validationemal(email.value)) {
@@ -87,7 +87,6 @@ function errorMessage(pElement, message) {
   } else {
     formRow.classList.add("error");
   }
-  formRow.querySelector(".error-message").innerHTML = message;
 }
 
 function successMessage(pElement) {
@@ -100,27 +99,36 @@ function successMessage(pElement) {
   }
 }
 
-fname.addEventListener("blur", checkName, true);
-email.addEventListener("blur", chekcEmail, true);
-title.addEventListener("blur", checkTile, true);
-text.addEventListener("blur", checkText, true);
+if (fname) {
+  fname.addEventListener("blur", checkName, true);
+}
+if (email) {
+  email.addEventListener("blur", checkEmail, true);
+}
+if (title) {
+  title.addEventListener("blur", checkTile, true);
+}
+if (text) {
+  text.addEventListener("blur", checkText, true);
+}
+if (form1) {
+  form1.addEventListener("submit", (evt) => {
+    evt.preventDefault();
+    const formRow = document.querySelectorAll(".form-row");
+    let arrFomrRow = Array.from(formRow);
 
-form1.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const formRow = document.querySelectorAll(".form-row");
-  let arrFomrRow = Array.from(formRow);
-
-  arrFomrRow.pop();
-  let isValid = true;
-  arrFomrRow.forEach((item) => {
-    if (!item.classList.contains("success")) {
-      isValid = false;
+    arrFomrRow.pop();
+    let isValid = true;
+    arrFomrRow.forEach((item) => {
+      if (!item.classList.contains("success")) {
+        isValid = false;
+      }
+    });
+    if (isValid) {
+      container.classList.add("complete");
+      alert("You sent your problem successfully and wait for respond!");
+    } else {
+      container.classList.remove("complete");
     }
   });
-  if (isValid) {
-    container.classList.add("complete");
-    alert("You sent your problem successfully and wait for respond!");
-  } else {
-    container.classList.remove("complete");
-  }
-});
+}
