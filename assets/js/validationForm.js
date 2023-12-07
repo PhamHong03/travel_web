@@ -167,3 +167,24 @@ const showPassword = (selector) => {
     },
   };
 };
+
+const iconShowPassword = document.querySelectorAll("i.show-password");
+if (iconShowPassword) {
+  iconShowPassword.forEach((element) => {
+    element.addEventListener("click", () => {
+      const passwordInputElement = element.parentElement.querySelector("input");
+
+      if (passwordInputElement) {
+        if (passwordInputElement.type === "password") {
+          passwordInputElement.type = "text";
+          element.classList.remove("fa-eye");
+          element.classList.add("fa-eye-slash");
+        } else {
+          passwordInputElement.type = "password";
+          element.classList.remove("fa-eye-slash");
+          element.classList.add("fa-eye");
+        }
+      }
+    });
+  });
+}

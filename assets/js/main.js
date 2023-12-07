@@ -100,27 +100,27 @@ function successMessage(pElement) {
   }
 }
 
-// fname.addEventListener("blur", checkName, true);
-// email.addEventListener("blur", chekcEmail, true);
-// title.addEventListener("blur", checkTile, true);
-// text.addEventListener("blur", checkText, true);
+fname.addEventListener("blur", checkName, true);
+email.addEventListener("blur", chekcEmail, true);
+title.addEventListener("blur", checkTile, true);
+text.addEventListener("blur", checkText, true);
 
-// form1.addEventListener("submit", (evt) => {
-//   evt.preventDefault();
-//   const formRow = document.querySelectorAll(".form-row");
-//   let arrFomrRow = Array.from(formRow);
+form1.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+  const formRow = document.querySelectorAll(".form-row");
+  let arrFomrRow = Array.from(formRow);
 
-//   arrFomrRow.pop();
-//   let isValid = true;
-//   arrFomrRow.forEach((item) => {
-//     if (!item.classList.contains("success")) {
-//       isValid = false;
-//     }
-//   });
-//   if (isValid) {
-//     container.classList.add("complete");
-//     alert("You sent your problem successfully and wait for respond!");
-//   } else {
-//     container.classList.remove("complete");
-//   }
-// });
+  arrFomrRow.pop();
+  let isValid = true;
+  arrFomrRow.forEach((item) => {
+    if (!item.classList.contains("success")) {
+      isValid = false;
+    }
+  });
+  if (isValid) {
+    container.classList.add("complete");
+    alert("You sent your problem successfully and wait for respond!");
+  } else {
+    container.classList.remove("complete");
+  }
+});

@@ -128,74 +128,67 @@
         <span class="register-banner-text">Register</span>
       </section>
       <section class="register__box">
-        <div class="register__img">
-          <img src="./assets/images/register-icon.png" />
-          <p class="register__img-para">
-            Our destination is not a land, but a new way of looking.
-          </p>
-        </div>
+        <div class="register__img"></div>
 
         <div class="register__form">
           <form method="POST" action="#" id="signup-form">
-            <h3 class="register__form-header">Register</h3>
+            <h3 class="register__form-header">Create an account</h3>
             <div class="register__form-group">
-              <input
-                type="text"
-                class="register__form-input"
-                placeholder="Enter your name"
-              />
-              <i class="fa-solid fa-user"></i>
+              <div>
+                <input
+                  type="text"
+                  class="register__form-input"
+                  placeholder="Enter your name"
+                  id="name"
+                  name="name"
+                />
+                <i class="fa-solid fa-user input-icon"></i>
+              </div>
               <small class="error-message"></small>
             </div>
 
             <div class="register__form-group">
-              <input
-                type="email"
-                class="register__form-input"
-                placeholder="Enter your email"
-                id="email"
-                name="email"
-              />
-              <i class="fa-solid fa-envelope"></i>
+              <div>
+                <input
+                  type="email"
+                  class="register__form-input"
+                  placeholder="Enter your email"
+                  id="email"
+                  name="email"
+                />
+                <i class="fa-solid fa-envelope input-icon"></i>
+              </div>
               <small class="error-message"></small>
             </div>
 
-            <!-- <div class="register__form-group">
-              <input
-                type="text"
-                class="register__form-input"
-                placeholder="Enter your address"
-              />
-              <i class="fa-solid fa-location-dot"></i>
-              <small class="error-message"></small>
-            </div> -->
-
             <div class="register__form-group">
-              <input
-                type="password"
-                class="register__form-input"
-                placeholder="Enter your password"
-                id="password"
-                name="email"
-              />
-              <i class="fa-solid fa-unlock"></i>
+              <div>
+                <input
+                  type="password"
+                  class="register__form-input"
+                  placeholder="Enter your password"
+                  id="password"
+                  name="password"
+                />
+                <i class="fa-solid fa-unlock input-icon"></i>
+                <i class="fa-solid fa-eye show-password"></i>
+              </div>
               <small class="error-message"></small>
-              <!-- <div class="register__form-input--show-password">
-                  <i class="fa-solid fa-eye-slash"></i>
-                </div> -->
             </div>
 
             <div class="register__form-group">
-              <input
-                type="password"
-                class="register__form-input"
-                placeholder="Confirm your password"
-              />
-              <i class="fa-solid fa-check-double"></i>
+              <div>
+                <input
+                  type="password"
+                  class="register__form-input"
+                  placeholder="Confirm your password"
+                  id="confirm-password"
+                  name="confirm-password"
+                />
+                <i class="fa-solid fa-check-double input-icon"></i>
+                <i class="fa-solid fa-eye show-password"></i>
+              </div>
               <small class="error-message"></small>
-              <!-- <div class="register__form-input--show-password">
-                  <i class="fa-solid fa-eye-slash"></i>
-                </div> -->
             </div>
 
             <div class="register__form-submit">
@@ -373,6 +366,9 @@
         formGroupSelector: ".register__form-group",
         errorMessageSelector: ".error-message",
         rules: [
+          isName("#name", {
+            required: "Please enter your name",
+          }),
           isEmail("#email", {
             required: "Please enter your email address",
             invalid: "Your email address is invalid",
@@ -381,8 +377,17 @@
             required: "Please enter your password",
             invalid: "Password must be at least 8 characters",
           }),
+          confirmPassword(
+            "#confirm-password",
+            function () {
+              return document.querySelector("#signup-form #password").value;
+            },
+            {
+              required: "Please enter your password again",
+              invalid: "Password does not match",
+            }
+          ),
         ],
-        showPassword: showPassword(".login__box-form-show-password--btn"),
         submitForm: (data) => {
           // logIn({
           //   name: data.name,
