@@ -12,7 +12,7 @@
 .register-banner-text {
   top: 50%;
   left: 50%;
-  color:var(--white);
+  color: var(--white);
   font-size: 6rem;
   font-weight: 900;
   position: absolute;
@@ -27,15 +27,21 @@
   align-items: center;
   background-color: #f3f3f3;
   z-index: 100;
+  /* width: 80%;
+  margin: 10px auto; */
 }
 
 .register__img {
   flex: 1;
   text-align: center;
+  /* background-image: url(/assets/images/register_img.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center; */
 }
 
 .register__img img {
-  width: 55%;
+  width: 50%;
   animation: rotate 8s linear;
   animation-iteration-count: infinite;
 }
@@ -88,7 +94,7 @@
   width: 100%;
 }
 
-#signup {
+#signup-form {
   width: 100%;
   text-align: center;
   margin-top: 35px;
@@ -408,7 +414,7 @@
   text-align: center;
 }
 
-.login__box-form-group {
+.login__box-form-group .login__form-row {
   display: flex;
   justify-content: center;
   margin-top: 30px;
@@ -447,30 +453,32 @@
 }
 
 .login__form-input:focus {
-  border: 2px solid var(--green2);
-  box-shadow: 0 0 3px rgba(29, 179, 74, 0.5);
+  /* border: 2px solid var(--green2); */
+  /* box-shadow: 0 0 3px rgba(29, 179, 74, 0.5); */
 }
 
-.login__form-input:focus + label,
-.login__form-input:valid + label {
+.login__form-input:focus + label {
   top: 0;
   color: var(--green2);
   font-size: 0.9rem;
   font-weight: 400;
 }
 
-.login__box-form-option-forgot {
+.login__box-form-option-forgot,
+.login__box-form-group--submit {
+  display: flex;
+  justify-content: center;
   margin: 8px 0 35px;
 }
 
-.login__box-form-remember {
+.login__box-form-show-password {
   flex: 1;
   text-align: left;
   font-size: 1rem;
   font-weight: 600;
 }
 
-.login__box-form-remember--btn {
+.login__box-form-show-password--btn {
   cursor: pointer;
   margin-right: 5px;
 }
@@ -496,7 +504,7 @@
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 700;
-  margin-bottom: 30px;
+  margin: 30px 0 20px;
 }
 
 .login__form--separation {
@@ -535,4 +543,32 @@
     box-shadow: none;
     border-radius: 0;
   }
+}
+
+/* Validation LOGIN form */
+.login__box-form-group.valid .login__form-row input {
+  border: 2px solid var(--green2);
+}
+
+.login__box-form-group.invalid .error-message {
+  color: red;
+}
+
+.login__box-form-group.invalid .login__form-row input {
+  border: 2px solid red;
+}
+.login__box-form-group.invalid .login__form-row i {
+  background-color: rgba(255, 0, 0, 0.85);
+}
+.login__box-form-group.invalid .login__form-input + label {
+  top: 0;
+  color: red;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+.login__box-form-group.valid .login__form-input + label {
+  top: 0;
+  color: var(--green2);
+  font-size: 0.9rem;
+  font-weight: 400;
 }

@@ -105,7 +105,9 @@
         </label>
         <hr class="hr__mobile" />
         <ul class="head__menu--list-mobile">
-          <li class="head__menu--item-mobile"><a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+          <li class="head__menu--item-mobile">
+            <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
           <li class="head__menu--item-mobile"><a href="/home.html">HOME</a></li>
           <li class="head__menu--item-mobile"><a href="/book.html">BOOK</a></li>
           <li class="head__menu--item-mobile">
@@ -128,23 +130,22 @@
       <section class="register__box">
         <div class="register__img">
           <img src="./assets/images/register-icon.png" />
-          <!-- <h2 class="register__img-heading">Travelatw</h2> -->
           <p class="register__img-para">
             Our destination is not a land, but a new way of looking.
           </p>
         </div>
 
         <div class="register__form">
-          <form method="POST" action="#" id="signup">
+          <form method="POST" action="#" id="signup-form">
             <h3 class="register__form-header">Register</h3>
             <div class="register__form-group">
               <input
                 type="text"
                 class="register__form-input"
                 placeholder="Enter your name"
-                required
               />
               <i class="fa-solid fa-user"></i>
+              <small class="error-message"></small>
             </div>
 
             <div class="register__form-group">
@@ -152,33 +153,33 @@
                 type="email"
                 class="register__form-input"
                 placeholder="Enter your email"
-                required
+                id="email"
+                name="email"
               />
-
               <i class="fa-solid fa-envelope"></i>
+              <small class="error-message"></small>
             </div>
 
-            <div class="register__form-group">
+            <!-- <div class="register__form-group">
               <input
                 type="text"
                 class="register__form-input"
                 placeholder="Enter your address"
-                required
               />
-
               <i class="fa-solid fa-location-dot"></i>
-            </div>
+              <small class="error-message"></small>
+            </div> -->
 
             <div class="register__form-group">
               <input
                 type="password"
                 class="register__form-input"
                 placeholder="Enter your password"
-                required
-                minlength="8"
+                id="password"
+                name="email"
               />
-
               <i class="fa-solid fa-unlock"></i>
+              <small class="error-message"></small>
               <!-- <div class="register__form-input--show-password">
                   <i class="fa-solid fa-eye-slash"></i>
                 </div> -->
@@ -189,11 +190,9 @@
                 type="password"
                 class="register__form-input"
                 placeholder="Confirm your password"
-                required
-                minlength="8"
               />
-
               <i class="fa-solid fa-check-double"></i>
+              <small class="error-message"></small>
               <!-- <div class="register__form-input--show-password">
                   <i class="fa-solid fa-eye-slash"></i>
                 </div> -->
@@ -367,5 +366,32 @@
     ></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/cart.js"></script>
+    <script src="./assets/js/validationForm.js"></script>
+    <script>
+      ValidateForm({
+        formSelector: "#signup-form",
+        formGroupSelector: ".register__form-group",
+        errorMessageSelector: ".error-message",
+        rules: [
+          isEmail("#email", {
+            required: "Please enter your email address",
+            invalid: "Your email address is invalid",
+          }),
+          isPassword("#password", 8, {
+            required: "Please enter your password",
+            invalid: "Password must be at least 8 characters",
+          }),
+        ],
+        showPassword: showPassword(".login__box-form-show-password--btn"),
+        submitForm: (data) => {
+          // logIn({
+          //   name: data.name,
+          //   email: data.email,
+          //   password: data.password,
+          // });
+          console.log(data);
+        },
+      });
+    </script>
   </body>
 </html>
