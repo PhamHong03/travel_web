@@ -94,16 +94,18 @@ function ValidateForm(options) {
     });
 
     // Show password field
-    const checkBoxElement = formElement.querySelector(
-      options.showPassword.selector
-    );
-    if (checkBoxElement) {
-      const passwordField = formElement.querySelectorAll(
-        "input[type=password]"
+    if (options.showPassword) {
+      const checkBoxElement = formElement.querySelector(
+        options.showPassword.selector
       );
-      checkBoxElement.onchange = function () {
-        options.showPassword.show(checkBoxElement, passwordField);
-      };
+      if (checkBoxElement) {
+        const passwordField = formElement.querySelectorAll(
+          "input[type=password]"
+        );
+        checkBoxElement.onchange = function () {
+          options.showPassword.show(checkBoxElement, passwordField);
+        };
+      }
     }
   }
 }

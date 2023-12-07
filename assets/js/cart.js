@@ -9,7 +9,7 @@ const saveCartList = (cartItem) => {
 
 const removeFromCart = (productId) => {
   let cartItem = getCartList();
-  cartItem = cartItem.filter((item) => item.id !== productId); // Use the correct property for comparison
+  cartItem = cartItem.filter((item) => String(item.id) !== String(productId)); // Use the correct property for comparison
   saveCartList(cartItem);
   location.reload();
 };
@@ -114,7 +114,9 @@ if (cartListContainer) {
           ${formatCurrency(cartItem.prices * cartItem.quantity)}
         </div>
         <div class="list__items items-button">
-          <button class="btn--confirm">Confirm</button>
+          <button class="btn--confirm" onclick="confirmTour(${
+            cartItem.id
+          })">Confirm</button>
         </div>
       </div>
       <i class="fa-solid fa-xmark btn-delete-item"></i>
@@ -162,6 +164,13 @@ if (bntDeleteItem) {
     });
   });
 }
+
+const confirmTour = (idTour) => {
+  alert(
+    "You have successfully confirmed. Please check your email. If after about 30 minutes you have not received an email, please contact us immediately."
+  );
+  removeFromCart(idTour);
+};
 
 // called on all pages to show quantity of cart
 updateQuantityCart();
