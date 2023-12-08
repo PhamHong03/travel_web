@@ -483,8 +483,11 @@
 }
 
 /* Page cart */
-.cart {
+.cart.background--img {
   background-image: url("../images/cart.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   height: 80vh;
 }
 

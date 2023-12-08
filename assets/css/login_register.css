@@ -31,10 +31,10 @@
 .register__box .register__img {
   flex: 1;
   text-align: center;
-  background-image: url(/assets/images/register_img.jpeg);
+  background-image: url(../images/register-img2.png);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: right;
+  background-position: center;
 }
 
 .register__form {
@@ -442,8 +442,7 @@
 }
 
 .login__form-input:focus {
-  /* border: 2px solid var(--green2); */
-  /* box-shadow: 0 0 3px rgba(29, 179, 74, 0.5); */
+  border: 1px solid var(--green2);
 }
 
 .login__form-input:focus + label {
@@ -469,7 +468,13 @@
 
 .login__box-form-show-password--btn {
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 6px;
+  width: 15px;
+  height: 15px;
+}
+
+.login__box-form-show-password span {
+  vertical-align: text-bottom;
 }
 
 .login__box-form-forgot-password {

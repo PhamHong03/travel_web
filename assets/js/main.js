@@ -132,3 +132,49 @@ if (form1) {
     }
   });
 }
+
+window.onload = () => {
+  const userLogedIn = localStorage.getItem("userLogedIn");
+  if (userLogedIn) {
+    const headerMenuPC = document.querySelector(".head__menu--pc");
+    const headerMenuMobile = document.querySelector(".head__menu--list-mobile");
+    if (headerMenuPC) {
+      let headerHTML = `
+        <ul class="head__menu--list">
+          <li class="head__menu--item">
+            <a href="/home.html">HOME</a>
+          </li>
+          <li class="head__menu--item">
+            <a href="/book.html">BOOK</a>
+          </li>
+          <li class="head__menu--item">
+            <a href="/contact.html">CONTACT</a>
+          </li>
+          <li class="head__menu--item">
+            <a href="/login.html" onclick=logOut()>LOGOUT</a>
+          </li>
+        </ul>`;
+      headerMenuPC.innerHTML = headerHTML;
+    }
+
+    if (headerMenuMobile) {
+      let headerHTML = `
+        <li class="head__menu--item-mobile">
+          <a href="/cart.html"><i class="fa-solid fa-cart-shopping"></i></a>
+        </li>
+        <li class="head__menu--item-mobile"><a href="/home.html">HOME</a></li>
+        <li class="head__menu--item-mobile"><a href="/book.html">BOOK</a></li>
+        <li class="head__menu--item-mobile">
+          <a href="/contact.html">CONTACT</a>
+        </li>
+        <li class="head__menu--item-mobile">
+          <a href="/login.html" onclick=logOut()>LOGOUT</a>
+        </li>`;
+      headerMenuMobile.innerHTML = headerHTML;
+    }
+  }
+};
+
+const logOut = () => {
+  localStorage.removeItem("userLogedIn");
+};

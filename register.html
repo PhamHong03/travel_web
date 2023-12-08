@@ -363,6 +363,7 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/validationForm.js"></script>
+    <script src="./assets/js/authentication.js"></script>
     <script>
       ValidateForm({
         formSelector: "#signup-form",
@@ -392,12 +393,11 @@
           ),
         ],
         submitForm: (data) => {
-          // logIn({
-          //   name: data.name,
-          //   email: data.email,
-          //   password: data.password,
-          // });
-          console.log(data);
+          signUp({
+            name: data.name,
+            email: data.email,
+            password: data.password,
+          });
         },
       });
     </script>
