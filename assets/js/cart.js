@@ -39,7 +39,6 @@ const formatCurrency = (amount, locale = "vi-VN") => {
 };
 
 const cartList = getCartList();
-console.log(cartList);
 
 const btnBook = document.querySelectorAll(".btn--book");
 const cartListContainer = document.querySelector(".cart__list");
@@ -165,6 +164,7 @@ if (bntDeleteItem) {
   });
 }
 
+// Show confirmation message when user clicks confirm button in the cart
 const confirmTour = (idTour) => {
   alert(
     "You have successfully confirmed. Please check your email. If after about 30 minutes you have not received an email, please contact us immediately."

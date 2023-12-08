@@ -84,12 +84,6 @@ function ValidateForm(options) {
             options.errorMessageSelector
           ).innerHTML = "";
         };
-
-        // if (inputElement.required)
-        inputElement.oninvalid = (evt) => {
-          evt.preventDefault();
-          validate(inputElement, rule);
-        };
       }
     });
 
@@ -170,6 +164,7 @@ const showPassword = (selector) => {
   };
 };
 
+// Show password in REGISTER form
 const iconShowPassword = document.querySelectorAll("i.show-password");
 if (iconShowPassword) {
   iconShowPassword.forEach((element) => {
@@ -189,4 +184,38 @@ if (iconShowPassword) {
       }
     });
   });
+}
+
+const passwordInputElement = document.querySelector("#signup-form #password");
+if (passwordInputElement) {
+  passwordInputElement.onfocus = () => {
+    if (passwordInputElement.value) {
+      passwordInputElement.oninput = () => {
+        let confirmPasswordInputElement = document.querySelector(
+          "#signup-form #confirm-password"
+        );
+        let formGroup = confirmPasswordInputElement.parentElement.parentElement;
+        if (passwordInputElement.value === confirmPasswordInputElement.value) {
+          if (formGroup.classList.contains("invalid")) {
+            formGroup.classList.remove("invalid");
+          }
+          formGroup.classList.add("valid");
+          formGroup.querySelector(".error-message").innerHTML = "";
+        } else {
+          if (formGroup.classList.contains("valid")) {
+            formGroup.classList.remove("valid");
+          }
+          formGroup.classList.add("invalid");
+          formGroup.querySelector(".error-message").innerHTML =
+            "Password does not match";
+        }
+
+        let formGroupInput = passwordInputElement.parentElement.parentElement;
+        if (formGroupInput) {
+          formGroupInput.classList.remove("invalid");
+          formGroupInput.querySelector(".error-message").innerHTML = "";
+        }
+      };
+    }
+  };
 }

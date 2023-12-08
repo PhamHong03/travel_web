@@ -173,7 +173,8 @@
                 <input
                   type="checkbox"
                   class="login__box-form-show-password--btn"
-                />Show password
+                />
+                <span>Show password</span>
               </div>
               <div class="login__box-form-forgot-password">
                 <a href="#">Forgot password?</a>
@@ -347,6 +348,7 @@
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/cart.js"></script>
     <script src="./assets/js/validationForm.js"></script>
+    <script src="./assets/js/authentication.js"></script>
     <script>
       ValidateForm({
         formSelector: "#login-form",
@@ -364,12 +366,10 @@
         ],
         showPassword: showPassword(".login__box-form-show-password--btn"),
         submitForm: (data) => {
-          // logIn({
-          //   name: data.name,
-          //   email: data.email,
-          //   password: data.password,
-          // });
-          console.log(data);
+          logIn({
+            email: data.email,
+            password: data.password,
+          });
         },
       });
     </script>
