@@ -113,7 +113,7 @@
 }
 
 .register__form-input:focus {
-  border: 2px solid var(--green2);
+  border: 1px solid var(--green2);
 }
 
 .register__form-input:focus + i.input-icon {
@@ -555,8 +555,11 @@
 .login__box-form-group.invalid .login__form-row i {
   background-color: rgba(255, 0, 0, 0.85);
 }
-.login__box-form-group.invalid .login__form-input + label {
+.login__box-form-group.invalid .login__form-input + label.invalid {
   top: 0;
+}
+.login__box-form-group.invalid .login__form-input + label.invalid,
+.login__box-form-group.invalid .login__form-input:focus + label {
   color: red;
   font-size: 0.9rem;
   font-weight: 400;

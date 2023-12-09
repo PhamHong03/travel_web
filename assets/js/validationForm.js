@@ -17,6 +17,15 @@ function ValidateForm(options) {
       }
       formGroup.classList.add("invalid");
       formGroup.querySelector(options.errorMessageSelector).innerHTML = message;
+
+      // Validate the input field name and only for LOGIN form
+      const labelNameInputElement = formGroup.querySelector("label.input-name");
+      if (labelNameInputElement) {
+        if (!element.value) {
+          if (labelNameInputElement.classList.contains("invalid"))
+            labelNameInputElement.classList.remove("invalid");
+        } else labelNameInputElement.classList.add("invalid");
+      }
     }
   };
 
@@ -186,14 +195,16 @@ if (iconShowPassword) {
   });
 }
 
+// Validate password and confirm password inputs when confirm password input
+// has data and password input is changed
 const passwordInputElement = document.querySelector("#signup-form #password");
 if (passwordInputElement) {
   passwordInputElement.onfocus = () => {
-    if (passwordInputElement.value) {
+    let confirmPasswordInputElement = document.querySelector(
+      "#signup-form #confirm-password"
+    );
+    if (passwordInputElement.value || confirmPasswordInputElement.value) {
       passwordInputElement.oninput = () => {
-        let confirmPasswordInputElement = document.querySelector(
-          "#signup-form #confirm-password"
-        );
         let formGroup = confirmPasswordInputElement.parentElement.parentElement;
         if (passwordInputElement.value === confirmPasswordInputElement.value) {
           if (formGroup.classList.contains("invalid")) {
