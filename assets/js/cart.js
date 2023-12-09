@@ -22,9 +22,11 @@ const clearLocalStrorage = () => {
 // update quantity of cart when users add new tour to cart
 const updateQuantityCart = () => {
   let newCartList = getCartList();
-  const cartQuantityIcon = document.querySelector(".head__cart-quantity");
-  if (cartQuantityIcon) {
-    cartQuantityIcon.innerHTML = `<div class="cart__quantity">${newCartList.length}</div>`;
+  const cartQuantityIcons = document.querySelectorAll(".head__cart-quantity");
+  if (cartQuantityIcons) {
+    cartQuantityIcons.forEach((cartQuantityIcon) => {
+      cartQuantityIcon.innerHTML = `<div class="cart__quantity">${newCartList.length}</div>`;
+    });
   }
 };
 
@@ -62,7 +64,9 @@ if (btnBook.length) {
           ".item-one__name span"
         ).textContent;
         tour.prices = parseInt(
-          parentNode.querySelector(".item-prices span").textContent
+          parentNode
+            .querySelector(".item-prices span")
+            .textContent.replace(/[^0-9]/g, "")
         );
         tour.quantity = 1;
 
@@ -166,11 +170,27 @@ if (bntDeleteItem) {
 
 // Show confirmation message when user clicks confirm button in the cart
 const confirmTour = (idTour) => {
-  alert(
-    "You have successfully confirmed. Please check your email. If after about 30 minutes you have not received an email, please contact us immediately."
-  );
-  removeFromCart(idTour);
+  const userLogedIn = localStorage.getItem("userLogedIn");
+  if (userLogedIn) {
+    alert(
+      "You have successfully confirmed. Please check your email. If after about 30 minutes you have not received an email, please contact us immediately."
+    );
+    removeFromCart(idTour);
+  } else {
+    alert(
+      "You have not logged in. Please try again after logging in successfully."
+    );
+    window.location = "../login.html";
+  }
 };
+
+// const tourPrices = document.querySelectorAll(".item-prices span");
+// if (tourPrices.length > 0) {
+//   tourPrices.forEach((prices) => {
+//     let price = prices.textContent;
+//     prices.innerHTML = formatCurrency(price);
+//   });
+// }
 
 // called on all pages to show quantity of cart
 updateQuantityCart();

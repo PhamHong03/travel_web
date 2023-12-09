@@ -27,12 +27,20 @@ header {
 .header.header__change .head .head__search i:hover {
   color: #333;
 }
+.header.header__change .head__user {
+  color: #333;
+  border-color: #333;
+  font-weight: 600;
+}
 .header.header__change .head__cart .head__cart-icon a i {
   color: #333;
 }
 .header.header__change .head .head__menu--list .head__menu--item a:hover,
 .header.header__change .head__cart .head__cart-icon a i:hover {
   color: var(--green3);
+}
+.header.header__change .head__search input {
+  box-shadow: 0 0 1px 1px rgba(10, 233, 51, 0.75);
 }
 .head {
   display: flex;
@@ -127,7 +135,7 @@ header {
 }
 .head__bars {
   width: 28px;
-  height: 28px;
+  /* height: 28px; */
   display: none;
   cursor: pointer;
   font-size: 35px;
@@ -214,6 +222,10 @@ header {
   opacity: 1;
   transform: translateX(-100%);
 }
+.head__cart-and-user {
+  display: flex;
+  align-items: center;
+}
 .head__cart a {
   color: var(--white);
   margin-right: 10px;
@@ -226,7 +238,8 @@ header {
 .head__cart {
   position: relative;
 }
-.cart__quantity {
+.head__cart-and-user--pc .cart__quantity,
+.head__cart--mobile .cart__quantity {
   background: var(--green2);
   color: var(--white);
   width: 20px;
@@ -239,6 +252,29 @@ header {
   top: -5px;
   right: 0;
 }
+.head__cart--mobile .cart__quantity {
+  left: 25px;
+}
+.head__cart-and-user--pc .head__user,
+.head__search .head__user {
+  margin-left: 20px;
+  border-left: 1px solid var(--white);
+  padding-left: 20px;
+  color: var(--white);
+}
+.head__user span {
+  vertical-align: middle;
+  margin-left: 8px;
+}
+.head__user.head__user--mobile {
+  margin-right: 25px;
+  border-right: 1px solid var(--white);
+  padding-right: 25px;
+  color: var(--white);
+  flex-basis: 30%;
+  text-align: right;
+  display: none;
+}
 @keyframes faceIn {
   form {
     opacity: 0;
@@ -249,7 +285,8 @@ header {
 }
 
 @media (max-width: 1023px) {
-  .head__bars {
+  .head__bars,
+  .head__user.head__user--mobile {
     display: block;
   }
   .header.header__change .head__bars {
@@ -257,7 +294,7 @@ header {
   }
   .head__menu--pc,
   .head .head__search,
-  .head__cart {
+  .head__cart-and-user--pc {
     display: none;
   }
   .head__bars i:hover {
