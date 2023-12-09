@@ -475,10 +475,10 @@
   display: flex;
   border-radius: 10px;
 }
-.form-row.success input {
+.form-row.success input,#message {
   border: 1px solid green;
 }
-.form-row.error input {
+.form-row.error input{
   border: 1px solid red;
 }
 

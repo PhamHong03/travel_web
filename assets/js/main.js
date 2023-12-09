@@ -127,6 +127,7 @@ if (form1) {
     if (isValid) {
       container.classList.add("complete");
       alert("You sent your problem successfully and wait for respond!");
+      location.reload();
     } else {
       container.classList.remove("complete");
     }
