@@ -26,16 +26,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-// const cartQuantityIcon = document.querySelector(".head__cart-quantity");
-// console.log(cartQuantityIcon);
-// if (cartQuantityIcon) {
-//   const cartItem = localStorage.getItem("cartItem")
-//     ? JSON.parse(localStorage.getItem("cartItem"))
-//     : [];
-//   console.log(cartItem.length);
-//   cartQuantityIcon.innerHTML = `<div class="cart__quantity">${cartItem.length}</div>`;
-// }
-
 // Contact Form
 const form1 = document.getElementById("form");
 const fname = document.getElementById("name");
@@ -134,6 +124,7 @@ if (form1) {
   });
 }
 
+// Change header component when user logs in
 // window.onload = () => {
 const userLogedIn = localStorage.getItem("userLogedIn");
 if (userLogedIn) {
@@ -182,6 +173,7 @@ if (userLogedIn) {
     headerMenuMobile.innerHTML = headerHTML;
   }
 
+  // show user name after user login successfully
   const userHeader = document.querySelectorAll(".head__user");
   if (userHeader.length > 0) {
     userHeader.forEach((item) => {
@@ -191,6 +183,7 @@ if (userLogedIn) {
 }
 // };
 
+// log out function
 const logOut = () => {
   localStorage.removeItem("userLogedIn");
 };

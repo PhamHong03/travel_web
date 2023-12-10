@@ -8,15 +8,17 @@ const signUp = (data) => {
   if (users.length > 0) {
     let isFound = users.find((user) => user.email === data.email);
     if (isFound) {
-      alert("User account already exists");
+      alert(
+        "This email has already been registered. Please try again with another email."
+      );
       // window.location = "./login.html";
-      location.reload();
+      // location.reload();
       return;
     }
   }
   users.unshift(data);
   localStorage.setItem("users", JSON.stringify(users));
-  alert("User account has been created successfully");
+  alert("User account has been created successfully.");
   window.location = "./login.html";
 };
 
@@ -26,8 +28,8 @@ const logIn = (data) => {
   if (isFound) {
     if (isFound.password === data.password) {
       localStorage.setItem("userLogedIn", JSON.stringify(isFound));
-      alert("You have logged in successfully");
+      alert("You have logged in successfully.");
       window.location = "./home.html";
-    } else alert("Password is incorrect");
-  } else alert("Your account does not exists");
+    } else alert("Password is incorrect.");
+  } else alert("Your account does not exists.");
 };

@@ -14,8 +14,8 @@ const removeFromCart = (productId) => {
   location.reload();
 };
 
-const clearLocalStrorage = () => {
-  localStorage.clear();
+const clearCartItems = () => {
+  localStorage.removeItem("cartItem");
   location.reload();
 };
 
@@ -149,7 +149,7 @@ if (btnDeleteAll) {
       return;
     }
     if (confirm("Are you sure you want to delete all items in your cart?")) {
-      clearLocalStrorage();
+      clearCartItems();
     }
   });
 }
@@ -183,14 +183,6 @@ const confirmTour = (idTour) => {
     window.location = "../login.html";
   }
 };
-
-// const tourPrices = document.querySelectorAll(".item-prices span");
-// if (tourPrices.length > 0) {
-//   tourPrices.forEach((prices) => {
-//     let price = prices.textContent;
-//     prices.innerHTML = formatCurrency(price);
-//   });
-// }
 
 // called on all pages to show quantity of cart
 updateQuantityCart();
