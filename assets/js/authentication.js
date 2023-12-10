@@ -10,6 +10,7 @@ const signUp = (data) => {
     if (isFound) {
       alert("User account already exists");
       // window.location = "./login.html";
+      location.reload();
       return;
     }
   }
