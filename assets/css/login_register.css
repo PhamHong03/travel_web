@@ -6,7 +6,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-image: url(/assets/images/register-bg.png);
+  background-image: url(../images/register-bg.png);
 }
 
 .register-banner-text {
@@ -335,7 +335,7 @@
 
 /* Page login */
 .login__banner {
-  background-image: url(/assets/images/login.jpg);
+  background-image: url(../images/login.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

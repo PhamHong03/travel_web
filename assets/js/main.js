@@ -135,16 +135,16 @@ if (userLogedIn) {
     let headerHTML = `
         <ul class="head__menu--list">
           <li class="head__menu--item">
-            <a href="/home.html">HOME</a>
+            <a href="./home.html">HOME</a>
           </li>
           <li class="head__menu--item">
-            <a href="/book.html">BOOK</a>
+            <a href="./book.html">BOOK</a>
           </li>
           <li class="head__menu--item">
-            <a href="/contact.html">CONTACT</a>
+            <a href="./contact.html">CONTACT</a>
           </li>
           <li class="head__menu--item">
-            <a href="/login.html" onclick=logOut()>LOGOUT</a>
+            <a href="./login.html" onclick=logOut()>LOGOUT</a>
           </li>
         </ul>`;
     headerMenuPC.innerHTML = headerHTML;
@@ -162,13 +162,13 @@ if (userLogedIn) {
             <div class="head__cart-quantity"></div>
           </div>
         </li>
-        <li class="head__menu--item-mobile"><a href="/home.html">HOME</a></li>
-        <li class="head__menu--item-mobile"><a href="/book.html">BOOK</a></li>
+        <li class="head__menu--item-mobile"><a href="./home.html">HOME</a></li>
+        <li class="head__menu--item-mobile"><a href="./book.html">BOOK</a></li>
         <li class="head__menu--item-mobile">
-          <a href="/contact.html">CONTACT</a>
+          <a href="./contact.html">CONTACT</a>
         </li>
         <li class="head__menu--item-mobile">
-          <a href="/login.html" onclick=logOut()>LOGOUT</a>
+          <a href="./login.html" onclick=logOut()>LOGOUT</a>
         </li>`;
     headerMenuMobile.innerHTML = headerHTML;
   }

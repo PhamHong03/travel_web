@@ -180,7 +180,7 @@ const confirmTour = (idTour) => {
     alert(
       "You have not logged in. Please try again after logging in successfully."
     );
-    window.location = "../login.html";
+    window.location = "./login.html";
   }
 };
 
